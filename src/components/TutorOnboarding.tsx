@@ -7,7 +7,7 @@ import { Textarea } from './ui/textarea'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
 import { Badge } from './ui/badge'
-import { toast } from 'sonner@2.0.3'
+import { toast } from 'sonner'
 import { UserPlus, Calendar, Upload, CheckCircle, ExternalLink } from 'lucide-react'
 import { projectId } from '../utils/env'
 

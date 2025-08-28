@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Toaster } from 'sonner@2.0.3'
+import { Toaster } from 'sonner'
 import RegistrationForm from './components/RegistrationForm'
 import CabinetCreated from './components/CabinetCreated'
 import TutorOnboarding from './components/TutorOnboarding'
