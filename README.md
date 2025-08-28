@@ -1,11 +1,62 @@
+# Система регистрации и онбординга репетиторов
 
-  # Система регистрации и онбординга репетиторов
+Этот репозиторий содержит код для системы регистрации и онбординга репетиторов. Исходный дизайн доступен в [Figma](https://www.figma.com/design/9Gph0vKQtqOHXGFvWdK6yS/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D0%B8-%D0%BE%D0%BD%D0%B1%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B3%D0%B0-%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%BE%D0%B2).
 
-  This is a code bundle for Система регистрации и онбординга репетиторов. The original project is available at https://www.figma.com/design/9Gph0vKQtqOHXGFvWdK6yS/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D0%B8-%D0%BE%D0%BD%D0%B1%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B3%D0%B0-%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%BE%D0%B2.
+## Требуемые переменные окружения
 
-  ## Running the code
+Создайте файл `.env` в корне проекта и определите следующие переменные:
 
-  Run `npm i` to install the dependencies.
+```bash
+REACT_APP_SUPABASE_PROJECT_ID=<идентификатор_проекта>
+REACT_APP_SUPABASE_ANON_KEY=<анонимный_ключ>
+```
 
-  Run `npm run dev` to start the development server.
-  
+## Структура проекта
+
+```
+/
+├─ src/                  # Исходный код приложения
+│  ├─ components/        # Компоненты React
+│  └─ App.tsx            # Точка входа приложения
+├─ index.html            # HTML-шаблон Vite
+├─ package.json          # Зависимости и скрипты
+└─ vite.config.ts        # Конфигурация Vite
+```
+
+## Запуск локальной разработки
+
+```bash
+npm install
+npm run dev
+```
+
+## Тестирование
+
+Для запуска тестов (когда они появятся) используйте:
+
+```bash
+npm test
+```
+
+Сборку проекта можно проверить командой:
+
+```bash
+npm run build
+```
+
+## Деплой
+
+### Vercel
+
+1. Создайте проект на [Vercel](https://vercel.com/) и подключите репозиторий.
+2. В разделе **Environment Variables** задайте `REACT_APP_SUPABASE_PROJECT_ID` и `REACT_APP_SUPABASE_ANON_KEY`.
+3. Укажите команду сборки `npm run build` и директорию вывода `dist`.
+4. После пуша в основную ветку Vercel автоматически выполнит сборку и развернёт приложение.
+
+## Устранение неполадок
+
+- Убедитесь, что установлена актуальная версия Node.js (>= 18) и npm.
+- Если установка зависимостей завершается ошибкой из‑за некорректных имён пакетов (например, записей вида `jsr:` или `npm:` в `package.json`), исправьте их на валидные имена и повторите `npm install`.
+- При сетевых ошибках попробуйте `npm cache clean --force` и повторите установку.
+- Для проблем со сборкой проверьте, что все переменные окружения заданы и зависимости установлены.
+
