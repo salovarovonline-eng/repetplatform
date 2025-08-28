@@ -5,7 +5,15 @@
 
   ## Running the code
 
-  Run `npm i` to install the dependencies.
+Run `npm i` to install the dependencies.
 
-  Run `npm run dev` to start the development server.
+Run `npm run dev` to start the development server.
+
+## Version constraints
+
+The following dependencies use explicit semver ranges to ensure reproducible installs:
+
+- `clsx` pinned to `^2.1.1`
+- `hono` pinned to `^4.9.4`
+- `tailwind-merge` pinned to `^3.3.1`
   
