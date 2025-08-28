@@ -9,6 +9,7 @@ import { Progress } from './ui/progress'
 import { Badge } from './ui/badge'
 import { toast } from 'sonner'
 import { Eye, EyeOff, Plus, X } from 'lucide-react'
+import { projectId, publicAnonKey } from '../utils/env'
 
 interface RegistrationFormProps {
   onSuccess: (userId: string) => void
@@ -124,16 +125,11 @@ export default function RegistrationForm({ onSuccess, onSwitchToLogin }: Registr
 
     setLoading(true)
     try {
-      // @ts-ignore
-      const projectId = window.process?.env?.REACT_APP_SUPABASE_PROJECT_ID
-      // @ts-ignore  
-      const anonKey = window.process?.env?.REACT_APP_SUPABASE_ANON_KEY
-
       const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${anonKey}`
+          'Authorization': `Bearer ${publicAnonKey}`
         },
         body: JSON.stringify({
           phone: formData.phone,

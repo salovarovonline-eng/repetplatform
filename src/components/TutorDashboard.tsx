@@ -7,11 +7,12 @@ import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { Textarea } from './ui/textarea'
-import { toast } from 'sonner'
-import { 
-  UserPlus, 
-  Calendar, 
-  Upload, 
+import { toast } from 'sonner@2.0.3'
+import {
+  UserPlus,
+  Calendar,
+  Upload,
+
   CheckCircle, 
   Users, 
   BookOpen, 
@@ -20,6 +21,7 @@ import {
   Settings,
   LogOut
 } from 'lucide-react'
+import { projectId } from '../utils/env'
 
 interface DashboardProps {
   accessToken: string
@@ -131,7 +133,7 @@ export default function TutorDashboard({ accessToken, onLogout }: DashboardProps
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/profile`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/profile`, {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         }
@@ -160,7 +162,7 @@ export default function TutorDashboard({ accessToken, onLogout }: DashboardProps
 
     setActionLoading('student')
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/students`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -202,7 +204,7 @@ export default function TutorDashboard({ accessToken, onLogout }: DashboardProps
 
     setActionLoading('lesson')
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/lessons`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/lessons`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -244,7 +246,7 @@ export default function TutorDashboard({ accessToken, onLogout }: DashboardProps
 
     setActionLoading('material')
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/materials`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/materials`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
