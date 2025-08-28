@@ -50,7 +50,7 @@ npm run build
 
 1. Создайте проект на [Vercel](https://vercel.com/) и подключите репозиторий.
 2. В разделе **Environment Variables** задайте `REACT_APP_SUPABASE_PROJECT_ID` и `REACT_APP_SUPABASE_ANON_KEY`.
-3. Укажите команду сборки `npm run build` и директорию вывода `dist`.
+3. Укажите команду сборки `npm run build` и директорию вывода `build`.
 4. После пуша в основную ветку Vercel автоматически выполнит сборку и развернёт приложение.
 
 ## Устранение неполадок
