@@ -7,8 +7,8 @@
 Создайте файл `.env` в корне проекта и определите следующие переменные:
 
 ```bash
-REACT_APP_SUPABASE_PROJECT_ID=<идентификатор_проекта>
-REACT_APP_SUPABASE_ANON_KEY=<анонимный_ключ>
+VITE_SUPABASE_PROJECT_ID=<идентификатор_проекта>
+VITE_SUPABASE_ANON_KEY=<анонимный_ключ>
 ```
 
 ## Структура проекта
@@ -49,7 +49,7 @@ npm run build
 ### Vercel
 
 1. Создайте проект на [Vercel](https://vercel.com/) и подключите репозиторий.
-2. В разделе **Environment Variables** задайте `REACT_APP_SUPABASE_PROJECT_ID` и `REACT_APP_SUPABASE_ANON_KEY`.
+2. В разделе **Environment Variables** задайте `VITE_SUPABASE_PROJECT_ID` и `VITE_SUPABASE_ANON_KEY`.
 3. Укажите команду сборки `npm run build` и директорию вывода `dist`.
 4. После пуша в основную ветку Vercel автоматически выполнит сборку и развернёт приложение.
 

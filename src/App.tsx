@@ -4,7 +4,7 @@ import RegistrationForm from './components/RegistrationForm'
 import CabinetCreated from './components/CabinetCreated'
 import TutorOnboarding from './components/TutorOnboarding'
 import TutorDashboard from './components/TutorDashboard'
-import { projectId, publicAnonKey } from './utils/supabase/info'
+import { projectId, publicAnonKey } from './utils/env'
 
 type AppState = 'registration' | 'cabinet-created' | 'onboarding' | 'dashboard' | 'login'
 
@@ -17,15 +17,6 @@ function App() {
   const [appState, setAppState] = useState<AppState>('registration')
   const [userSession, setUserSession] = useState<UserSession | null>(null)
   const [loading, setLoading] = useState(true)
-
-  // Устанавливаем переменные окружения для доступа к ним в компонентах
-  useEffect(() => {
-    // @ts-ignore
-    window.process = { env: { 
-      REACT_APP_SUPABASE_PROJECT_ID: projectId,
-      REACT_APP_SUPABASE_ANON_KEY: publicAnonKey
-    }}
-  }, [])
 
   // Проверяем существующую сессию при загрузке
   useEffect(() => {
