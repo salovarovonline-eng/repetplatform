@@ -15,6 +15,9 @@ interface RegistrationFormProps {
   onSwitchToLogin?: () => void
 }
 
+const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID as string
+const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string
+
 export default function RegistrationForm({ onSuccess, onSwitchToLogin }: RegistrationFormProps) {
   const [step, setStep] = useState(1)
   const [showPassword, setShowPassword] = useState(false)
@@ -124,11 +127,6 @@ export default function RegistrationForm({ onSuccess, onSwitchToLogin }: Registr
 
     setLoading(true)
     try {
-      // @ts-ignore
-      const projectId = window.process?.env?.REACT_APP_SUPABASE_PROJECT_ID
-      // @ts-ignore  
-      const anonKey = window.process?.env?.REACT_APP_SUPABASE_ANON_KEY
-
       const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/register`, {
         method: 'POST',
         headers: {
