@@ -15,6 +15,8 @@ interface OnboardingProps {
   onComplete: () => void
 }
 
+const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID as string
+
 interface Student {
   id: string
   name: string
@@ -104,7 +106,7 @@ export default function TutorOnboarding({ accessToken, onComplete }: OnboardingP
 
     setLoading(true)
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/students`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +144,7 @@ export default function TutorOnboarding({ accessToken, onComplete }: OnboardingP
 
     setLoading(true)
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/lessons`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/lessons`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -180,7 +182,7 @@ export default function TutorOnboarding({ accessToken, onComplete }: OnboardingP
 
     setLoading(true)
     try {
-      const response = await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/materials`, {
+      const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/materials`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -212,7 +214,7 @@ export default function TutorOnboarding({ accessToken, onComplete }: OnboardingP
 
   const updateOnboardingStep = async (step: number) => {
     try {
-      await fetch(`https://${process.env.REACT_APP_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/make-server-c3da9688/onboarding/step`, {
+      await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-c3da9688/onboarding/step`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
